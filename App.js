@@ -9,9 +9,10 @@ export default function App() {
 
   
   return (
-    <NavigationContainer>
+    
+      <NavigationContainer>
         <MainStack/>
-    </NavigationContainer>
+      </NavigationContainer>
     )
 }
 

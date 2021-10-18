@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, KeyboardAvoidingView } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import Entypo from 'react-native-vector-icons/Entypo';
 
 export default ({ navigation }) => {
     return(
@@ -11,22 +12,23 @@ export default ({ navigation }) => {
             </View>
 
             <View style={styles.box}>
-                <Text style={styles.boxTitle}> Meu acesso </Text>
+                <Text style={styles.boxTitle}> Realizar cadastro </Text>
                 <TextInput style={styles.input} placeholder="E-mail"/>
+                <TextInput style={styles.input} placeholder="Nome"/>
+                <TextInput style={styles.input} placeholder="Profissão"/>
+                <TextInput keyboardType = 'numeric' style={styles.input} placeholder="Telefone"/>
                 <TextInput placeholder="Senha" secureTextEntry={true} style={styles.input}/>
-                
 
-                <TouchableOpacity style={styles.button} placeholder="teste">
-                    <Text style={styles.textButton}> ENTRAR AGORA </Text>
-                </TouchableOpacity>
+                <View style={styles.buttons}>
+                    <TouchableOpacity onPress={() => { navigation.goBack() }} style={styles.button} placeholder="teste">
+                    <Text style={styles.textButton}> VOLTAR </Text>
 
-                </View>
-
-                <View style={styles.footer}>
-                    <Text style={{ fontSize: 15, color: '#ddd', textAlign: 'center', paddingBottom: 10}}> Não possui uma conta? </Text>
-                    <TouchableOpacity onPress={() => {navigation.navigate('Cadastro')}}> 
-                        <Text style={styles.registerText}> REALIZAR CADASTRO </Text>
                     </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.button} placeholder="teste">
+                        <Text style={styles.textButton}> CADASTRAR </Text>
+                    </TouchableOpacity>
+                </View>
                 </View>
          
         </KeyboardAvoidingView>
@@ -43,11 +45,11 @@ const styles = StyleSheet.create({
 
     box: {
         position: 'absolute',
-        top: 150,
+        top: 110,
         backgroundColor: '#fff',
         width: '90%', 
         borderRadius: 16,
-        paddingBottom: 70,
+        paddingBottom: 100,
     },
 
     textAndLogo: {
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
 
     logo: {
 
-        width: 150,
+        width: 100,
         resizeMode: 'contain'
     },
 
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         marginLeft: '5%',
         marginRight: '5%',
-        height: '25%',
+        height: '13%',
         width: '90%',
         marginTop: 20,
         paddingLeft: 20
@@ -90,11 +92,18 @@ const styles = StyleSheet.create({
 
         borderRadius: 15,
         backgroundColor: '#024A96',
-        width: '90%',
-        height: 35,
+        width: 150,
+        margin: 10,
+        height: 40,
         marginTop: 30,
         marginLeft: '5%',
     },
+
+    buttons: {  
+        alignItems: 'center',
+        marginLeft: '1%',
+        flexDirection: "row",
+    },  
 
     boxTitle:{
 
@@ -109,18 +118,18 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
         textAlign: 'center',
-        paddingTop: 5
+        paddingTop: 7
     },
 
-    footer: {
+    goBack: {
         position: 'absolute',
-        top: 530,
+        top: 700,
         left: '28%',
     },
 
-    registerText: {
+    loginText: {
         fontWeight: 'bold',
-        color: '#fff',
+        color: '#000',
         fontSize: 16,
         textAlign: 'center'
     }

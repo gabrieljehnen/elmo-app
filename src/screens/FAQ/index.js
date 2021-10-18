@@ -34,7 +34,6 @@ export default () => {
 
     const [clicado, setClicado] = useState(Array.from({ length: duvidas.length }, _ => false))
 
-
     return(
             <View style={{backgroundColor: '#fff', flex: 1}}>
               <ScrollView style={{width: '95%', margin: '2%'}}>

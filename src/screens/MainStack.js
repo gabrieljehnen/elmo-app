@@ -11,11 +11,29 @@ import Perfil from './Perfil';
 import Relatos from './Relatos';
 import Suporte from './Suporte';
 import FAQ from './FAQ';
+import Cadastro from './Cadastro';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
+function alertLogin(){
+
+    Alert.alert('Para realizar um relato de uso é necessário fazer login.', 'Deseja fazer o login?', [
+        {
+            text: 'Voltar',
+            onPress(){
+                navigation.navigate('Perfil')
+            }
+        },
+        {
+            text: 'Fazer login',
+            onPress(){
+                navigation.navigate('Perfil')
+            }
+        }
+    ])
+}
 
 function HomeStackScreen(){
 
@@ -37,6 +55,7 @@ function PerfilStackScreen(){
             headerShown: false
         }}>
             <Stack.Screen name="Perfil" component={Perfil}/>
+            <Stack.Screen name="Cadastro" component={Cadastro}/>
         </Stack.Navigator>
     )
 }
@@ -121,7 +140,7 @@ const CustomDrawer = (props) => {
             <DrawerItem
                 label="Sair"
                 icon={({color, size}) => (
-                    <Entypo name="log-out" color={color} size={size} ></Entypo>
+                    <Entypo name="log-out" color={'red'} size={size} ></Entypo>
                 )}/>
         </View>
     )
@@ -157,7 +176,7 @@ export default function MainStack(){
                     <FontAwesome5 name="user-alt" color={color} size={size} ></FontAwesome5>
                 )}} component={PerfilStackScreen}/>
 
-            <Drawer.Screen name="Relatos" options={{
+            <Drawer.Screen onPress={alertLogin} name="Relatos" options={{
                 drawerIcon: ({color, size}) => (
                     <FontAwesome5 name="clipboard-check" color={color} size={size} ></FontAwesome5>
                 )}} component={RelatosStackScreen}/>
