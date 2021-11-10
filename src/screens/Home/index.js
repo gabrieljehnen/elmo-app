@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StatusBar, Image, Button } from "react-native";
 import FlatButton from '../../components/Button/button';
 import Container from '../../components/container';
@@ -21,7 +21,7 @@ export default ({navigation}) => {
                 <FlatButton text="Perguntas frequentes" text2="VER PERGUNTAS" name="information"/>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={() => navigation.navigate('FAQ')}>
+            <TouchableOpacity onPress={() => navigation.navigate('RelatoDeUso')}>
                 <FlatButton text="Relato de uso" text2="FAZER UM RELATO" name="clipboard-check"/>
             </TouchableOpacity>
 
